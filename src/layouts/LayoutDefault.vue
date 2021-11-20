@@ -8,31 +8,21 @@
         <slot />
       </main>
     </el-main>
-    <el-footer class="container-footer">
-      <Footer />
-    </el-footer>
   </el-container>
 </template>
 
 <script>
 import Header from "../components/layout-default/Header.vue";
-import Footer from "../components/layout-default/Footer.vue";
 
 export default {
   name: "LayoutDefault",
-  components: { Header, Footer },
+  components: { Header },
 };
 </script>
 
 <style scoped>
 .body {
-  min-height: 90vh;
+  min-height: calc(100vh - 90px);
 }
-.container-footer {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  background: #ccc;
-  align-items: center;
-}
+
 </style>

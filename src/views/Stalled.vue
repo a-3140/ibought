@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1>{{ $t("signup") }}</h1>
+    <h1>Stalled</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Signup"
+  name: "About"
 };
 </script>

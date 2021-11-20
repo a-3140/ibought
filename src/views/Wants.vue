@@ -1,9 +1,11 @@
 <template>
-  <footer v-html="$t('copyright')" />
+  <div>
+    <h1>Wants</h1>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Footer",
+  name: "Wants"
 };
 </script>

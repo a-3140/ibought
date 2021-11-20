@@ -23,25 +23,28 @@ export default {
     return {
       routerEnabled: true,
       // Update router.index when changing paths & vice versa
-      defaultActiveIndex: "/",
+      defaultActiveIndex: "",
       header_paths: [
         {
-          path: "/",
-          name: "Sign in",
+          path: "/wants",
+          name: "Wants",
           index: 1,
         },
         {
-          path: "/signup",
-          name: "Sign up",
+          path: "/stalled",
+          name: "Stalled",
           index: 2,
         },
         {
-          path: "/about",
-          name: "About",
+          path: "/allowed",
+          name: "Allowed",
           index: 3,
         },
       ],
     };
+  },
+  created() {
+    this.defaultActiveIndex = this.header_paths[0].path
   },
   // for testing
   methods: {
@@ -53,9 +56,4 @@ export default {
 </script>
 
 <style scoped>
-.nav-container {
-  display: flex;
-  flex-direction: row-reverse;
-  padding: 0 1em 0 1em;
-}
 </style>
