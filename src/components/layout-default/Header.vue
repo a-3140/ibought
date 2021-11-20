@@ -44,7 +44,7 @@ export default {
     };
   },
   created() {
-    this.defaultActiveIndex = this.header_paths[0].path
+    this.defaultActiveIndex = this.header_paths[0].path;
   },
   // for testing
   methods: {
@@ -56,4 +56,12 @@ export default {
 </script>
 
 <style scoped>
+.nav-container {
+  position: fixed;
+  bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 8px);
+  left: 4px;
+}
 </style>
