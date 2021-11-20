@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 import LayoutDefault from '@/layouts/LayoutDefault.vue';
-import LayoutLoggedIn from '@/layouts/LayoutLoggedIn.vue';
 
 Vue.use(VueRouter)
 
@@ -28,14 +27,6 @@ const routes: Array<RouteConfig> = [
     meta: { layout: LayoutDefault },
     component: () => import('../views/Signup.vue')
   },
-  {
-    path: '/profile',
-    name: 'My Profile',
-    meta: { layout: LayoutLoggedIn },
-    component: () => import('../views/Profile.vue')
-  }
-
-
 ]
 
 const router = new VueRouter({
