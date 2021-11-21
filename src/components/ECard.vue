@@ -5,7 +5,17 @@
       <p class="box-item-store"><b>Shopee</b></p>
       <p class="box-item-note">3 Days left</p>
     </div>
-    <b class="box-item-price">20,000 PHP</b>
+    <div class="box-item-price">
+      <div>20,000 PHP</div>
+      <div>
+        <el-progress
+          width="26"
+          type="circle"
+          :percentage="50"
+          status="exception"
+        ></el-progress>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,9 +31,13 @@ export default {
   margin-right: 0;
   border-bottom: 1px solid #c0c4cc;
   text-align: left;
-  padding: 1em;
+  padding: 2em 1em;
   display: flex;
   justify-content: space-between;
+  align-content: center;
+}
+.box-container:hover {
+  background: #ccc;
 }
 .box-item-name {
   margin: 0;
@@ -36,5 +50,15 @@ export default {
   color: #909399;
   margin: 0;
   margin-top: 4px;
+}
+.box-item-price {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+  font-weight: bold;
+}
+.el-progress {
+  padding: 16px;
 }
 </style>

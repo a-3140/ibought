@@ -31,14 +31,9 @@ export default {
           index: 1,
         },
         {
-          path: "/stalled",
-          name: "Stalled",
-          index: 2,
-        },
-        {
           path: "/allowed",
           name: "Allowed",
-          index: 3,
+          index: 2,
         },
       ],
     };

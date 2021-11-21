@@ -8,11 +8,6 @@
         <slot />
         <e-btn v-bind="button" />
         <e-card /> 
-        <e-card-2 /> 
-        <e-card /> 
-        <e-card-2 /> 
-        <e-card /> 
-        <e-card-2 /> 
       </main>
     </el-main>
   </el-container>
@@ -22,11 +17,10 @@
 import Header from "../components/layout-default/Header.vue";
 import EBtn from "../components/Buttons/EBtn.vue";
 import ECard from "../components/ECard.vue";
-import ECard2 from "../components/ECard2.vue";
 
 export default {
   name: "LayoutDefault",
-  components: { Header, EBtn, ECard, ECard2 },
+  components: { Header, EBtn, ECard },
   data() {
     return {
       button: {
