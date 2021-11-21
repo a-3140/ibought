@@ -55,7 +55,12 @@ export default {
 };
 </script>
 
+
 <style scoped>
+.el-menu.el-menu--horizontal {
+  border-bottom: none;
+  border-top: solid 1px #e6e6e6;
+}
 .nav-container {
   position: fixed;
   bottom: 5px;
