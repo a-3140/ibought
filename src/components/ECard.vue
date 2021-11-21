@@ -1,12 +1,16 @@
 <template>
   <div class="box-container">
     <div class="box-item">
-      <p class="box-item-name">Macbook Air 13 M1 - 256GB</p>
+      <p class="box-item-name">{{ name }}</p>
+      <!-- name -->
       <p class="box-item-store"><b>Shopee</b></p>
+      <!-- shop -->
       <p class="box-item-note">3 Days left</p>
+      <!-- date-added: compute this from the item.days_to_delay -->
     </div>
     <div class="box-item-price">
       <div>20,000 PHP</div>
+      <!-- price -->
       <div>
         <el-progress
           width="26"
@@ -14,6 +18,7 @@
           :percentage="50"
           status="exception"
         ></el-progress>
+        <!-- this should be computed -->
       </div>
     </div>
   </div>
@@ -22,6 +27,13 @@
 <script lang="ts">
 export default {
   name: "Card",
+  props: {
+    name: {
+      type: String,
+      required: true,
+      default: ''
+    }
+  }
 };
 </script>
 

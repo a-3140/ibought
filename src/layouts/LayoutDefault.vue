@@ -7,7 +7,7 @@
       <main class="LayoutDefault__main">
         <slot />
         <e-btn v-bind="button" />
-        <e-card /> 
+        <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
       </main>
     </el-main>
   </el-container>
@@ -28,6 +28,16 @@ export default {
         icon: "el-icon-circle-plus",
         text: "I want ...",
       },
+      wantList: [
+        {
+          id: 1,
+          name: "Macbook Air 13 M1 - 256GB",
+        },
+        {
+          id: 2,
+          name: "Logitech MX Master 3",
+        },
+      ],
     };
   },
 };
