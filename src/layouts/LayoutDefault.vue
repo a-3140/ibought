@@ -7,6 +7,12 @@
       <main class="LayoutDefault__main">
         <slot />
         <e-btn v-bind="button" />
+        <e-card /> 
+        <e-card-2 /> 
+        <e-card /> 
+        <e-card-2 /> 
+        <e-card /> 
+        <e-card-2 /> 
       </main>
     </el-main>
   </el-container>
@@ -15,10 +21,12 @@
 <script>
 import Header from "../components/layout-default/Header.vue";
 import EBtn from "../components/Buttons/EBtn.vue";
+import ECard from "../components/ECard.vue";
+import ECard2 from "../components/ECard2.vue";
 
 export default {
   name: "LayoutDefault",
-  components: { Header, EBtn },
+  components: { Header, EBtn, ECard, ECard2 },
   data() {
     return {
       button: {
@@ -35,5 +43,8 @@ export default {
 .body {
   min-height: calc(100vh - 90px);
   margin-top: -30px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-bottom: 90px;
 }
 </style>

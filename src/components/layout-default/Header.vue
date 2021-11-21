@@ -63,7 +63,7 @@ export default {
 }
 .nav-container {
   position: fixed;
-  bottom: 5px;
+  bottom: 0px;
   display: flex;
   justify-content: space-between;
   width: calc(100% - 8px);
