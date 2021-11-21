@@ -6,7 +6,7 @@
     <el-main class="body">
       <main class="LayoutDefault__main">
         <slot />
-        <e-btn :btnType="this.default" :text="'test'" />
+        <e-btn v-bind="button" />
       </main>
     </el-main>
   </el-container>
@@ -21,7 +21,11 @@ export default {
   components: { Header, EBtn },
   data() {
     return {
-      default: "plain",
+      button: {
+        type: "default",
+        icon: "el-icon-circle-plus",
+        text: "Add something...",
+      },
     };
   },
 };

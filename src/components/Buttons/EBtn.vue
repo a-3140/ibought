@@ -1,10 +1,8 @@
 <template>
-  <el-button type="plain" :icon="this.props.icon" round>{{ this.props.text }}test</el-button>
-  <!-- <el-button round>test</el-button> -->
+  <el-button :type="type" :icon="icon" round>{{ text }}</el-button>
 </template>
 
-<script>
-import { buttonTypes } from "../../constants/button-types";
+<script lang="ts">
 
 export default {
   name: "EBtn",
@@ -17,16 +15,11 @@ export default {
       type: String,
       required: false,
     },
-    btnType: {
+    type: {
       type: String,
       required: true,
-      validator: (prop) => buttonTypes.includes(prop),
+      default: 'default'
     },
   },
-  computed() {
-    // buttonType(): String {
-    //   return this.btnType === 'default' ? ''
-    // } 
-  }
 };
 </script>
