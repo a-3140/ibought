@@ -22,9 +22,9 @@ export default {
   data() {
     return {
       button: {
-        type: "default",
+        type: "danger",
         icon: "el-icon-circle-plus",
-        text: "Add something...",
+        text: "I want ...",
       },
     };
   },
@@ -34,5 +34,6 @@ export default {
 <style scoped>
 .body {
   min-height: calc(100vh - 90px);
+  margin-top: -30px;
 }
 </style>
