@@ -32,10 +32,18 @@ export default {
         {
           id: 1,
           name: "Macbook Air 13 M1 - 256GB",
+          shopName: "Shopee",
+          price: 20000,
+          dateAdded: new Date(2021, 10, 20), // 2 days ago
+          daysToDelay: 7,
         },
         {
           id: 2,
           name: "Logitech MX Master 3",
+          shopName: "Lazada",
+          price: 5000,
+          dateAdded: new Date(2021, 10, 20),
+          daysToDelay: 3,
         },
       ],
     };
