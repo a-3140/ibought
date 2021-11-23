@@ -18,7 +18,7 @@ import Header from "../components/layout-default/Header.vue";
 import EBtn from "../components/Buttons/EBtn.vue";
 import ECard from "../components/ECard.vue";
 
-export default {
+  export default {
   name: "LayoutDefault",
   components: { Header, EBtn, ECard },
   data() {
@@ -34,7 +34,7 @@ export default {
           name: "Macbook Air 13 M1 - 256GB",
           shopName: "Shopee",
           price: 20000,
-          dateAdded: new Date(2021, 10, 20), // 2 days ago
+          dateAdded: new Date(2021, 10, 17), // 2 days ago
           daysToDelay: 7,
         },
         {
@@ -42,8 +42,8 @@ export default {
           name: "Logitech MX Master 3",
           shopName: "Lazada",
           price: 5000,
-          dateAdded: new Date(2021, 10, 20),
-          daysToDelay: 3,
+          dateAdded: new Date(2021, 10, 19),
+          daysToDelay: 4,
         },
       ],
     };

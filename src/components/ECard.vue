@@ -6,18 +6,18 @@
         <b>{{ shopName }}</b>
       </p>
       <p class="box-item-note">
-        {{ getDaysLeft(dateAdded, daysToDelay) }} Days Left
+        {{ daysLeftMessage }}
       </p>
     </div>
     <div class="box-item-price">
-      <div>{{ formatNumberToPrice(price) }} {{ currency }}</div>
+      <div>{{ formattedPrice }} {{ currency }}</div>
       <div>
+          <!-- :color="getStatus(dateAdded, daysToDelay)" -->
         <el-progress
           type="circle"
-          :show-text=false
-          :color="getStatus(dateAdded, daysToDelay)"
+          :show-text="false"
           :width="26"
-          :percentage="computeProgressPercentage(dateAdded, daysToDelay)"
+          :percentage="progressPercentage"
         ></el-progress>
       </div>
     </div>
@@ -25,12 +25,44 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: "Card",
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "ECard",
   data() {
     return {
       currency: "PHP",
+      dateStart: this.dateAdded,
     };
+  },
+  computed: {
+    formattedPrice(): string {
+      return this.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+    },
+    diffDateTodayDateAdded(): number {
+      const today = this.today.getTime()
+      const dateAdded = this.dateAdded as Date
+      return this.getDaysByMilliseconds(today - dateAdded.getTime());
+    },
+    daysLeft(): number {
+      return (this.daysToDelay + 1) - this.diffDateTodayDateAdded;
+    },
+    daysLeftMessage(): string {
+      if (this.daysLeft < 0) {
+        return `${this.daysToDelay} Days DONE!!!`;
+      } else if (this.daysLeft === 1) {
+        return `${this.daysLeft} Day Left!`;
+      } else if (this.daysLeft === 0) {
+        return `Last Day Today!`;
+      }
+      return `${this.daysLeft} Days Left`;
+    },
+    progressPercentage(): number {
+      return this.getPercentage(this.daysToDelay - this.daysLeft, this.daysToDelay); 
+    },
+    today(): Date {
+      return new Date() as Date;
+    },
   },
   props: {
     name: {
@@ -56,51 +88,26 @@ export default {
     dateAdded: {
       type: Date,
       required: true,
-      default: Date(),
+      default: new Date(),
     },
   },
   methods: {
-    // getStatus(date_added: Date, days_to_delay: number): string {
-    //   return this.getDaysLeft(date_added, days_to_delay) === 0 ? '#6f7ad3' : '#f56c6c';
-    // },
-    getStatus(date_added: Date, days_to_delay: number): string {
-      console.log(this.getDaysLeft(date_added, days_to_delay) === 0 ? '#6f7ad3' : '#f56c6c');
-      return '#6f7ad3';
+    subtract(minuend: number, subtrahend: number): number {
+      return minuend - subtrahend;
     },
-    getNumberOfDays(date1: Date, date2: Date): number {
+    getDaysByMilliseconds(milliseconds: number): number {
       const oneDayInMilliseconds = 1000 * 60 * 60 * 24;
-      const diffInTime = date2.getTime() - date1.getTime();
-      const diffInDays = Math.round(diffInTime / oneDayInMilliseconds);
-
-      return diffInDays;
+      return Math.round(milliseconds / oneDayInMilliseconds);
     },
-
     getPercentage(progress: number, goal: number): number {
-      return Math.abs((progress / goal) * 100);
+      return Math.abs((progress * 100 ) / goal);
     },
-
-    getDifferenceOfDays(date_added: Date): number {
-      const today = new Date() as Date;
-      return this.getNumberOfDays(date_added, today);
-    },
-
-    getDaysLeft(date_added: Date, days_to_delay: number): number {
-      const difference = this.getDifferenceOfDays(date_added);
-      return days_to_delay - difference;
-    },
-
-    computeProgressPercentage(date_added: Date, days_to_delay: number): number {
-      const difference = this.getDifferenceOfDays(date_added);
-      const progress = difference - days_to_delay;
-      console.log(this.getPercentage(progress, days_to_delay));
-      return this.getPercentage(progress, days_to_delay);
-    },
-
-    formatNumberToPrice(num: number): string {
-      return num.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
-    },
+    // getStatus(date_added: Date, days_to_delay: number): string {
+    //   : "#f56c6c"
+    //   return "#6f7ad3";
+    // },
   },
-};
+});
 </script>
 
 
