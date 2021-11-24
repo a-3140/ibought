@@ -1,9 +1,20 @@
 <template>
   <div class="btn-container">
-    <el-button v-if="text" :type="type" :icon="icon" round>{{
-      text
-    }}</el-button>
-    <el-button v-else :type="type" :icon="icon" circle />
+    <el-button
+      v-on:click="callFunction"
+      v-if="text"
+      :type="type"
+      :icon="icon"
+      round
+      >{{ text }}</el-button
+    >
+    <el-button
+      v-on:click="callFunction"
+      v-else
+      :type="type"
+      :icon="icon"
+      circle
+    />
   </div>
 </template>
 
@@ -24,6 +35,11 @@ export default {
       type: String,
       required: true,
       default: "default",
+    },
+  },
+  methods: {
+    callFunction() {
+      this.$emit("btn-function");
     },
   },
 };

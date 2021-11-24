@@ -7,6 +7,7 @@ import store from './store';
 Vue.config.productionTip = false;
 
 import {
+  Drawer,
   Pagination,
   Dialog,
   Autocomplete,
@@ -89,6 +90,7 @@ import {
 import './registerServiceWorker'
 
 
+Vue.use(Drawer);
 Vue.use(Pagination);
 Vue.use(Dialog);
 Vue.use(Autocomplete);
