@@ -39,9 +39,8 @@ export default Vue.extend({
   },
   computed: {
     progressColor(): string {
-      // * success => #67C23A
-      // * warning => #E6A23C
-      return this.daysLeft < 0 ? "#67C23A" : "#E6A23C";
+      // primary & textColor from element-ui
+      return this.daysLeft < 0 ? "#409EFF" : "#303133";
     },
     formattedPrice(): string {
       return this.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
