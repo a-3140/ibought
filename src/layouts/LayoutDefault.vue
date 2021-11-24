@@ -15,7 +15,36 @@
       :destroy-on-close="drawerOptions.destroyOnClose"
       :size="drawerOptions.size"
     >
-      <span>Hi, there!</span>
+      <el-divider />
+      <el-row type="flex" justify="center" class="row-bg">
+        <el-col :xs="20">
+          <el-form
+            :label-position="labelPosition"
+            label-width="100px"
+            :model="formLabelAlign"
+          >
+            <el-form-item label="Date">
+              <el-input v-model="formLabelAlign.name"></el-input>
+            </el-form-item>
+            <el-form-item label="Item Name">
+              <el-input v-model="formLabelAlign.name"></el-input>
+            </el-form-item>
+            <el-form-item label="Category">
+              <el-input v-model="formLabelAlign.region"></el-input>
+            </el-form-item>
+            <el-form-item label="Days">
+              <el-input v-model="formLabelAlign.type"></el-input>
+            </el-form-item>
+            <el-form-item label="Price">
+              <el-input v-model="formLabelAlign.type"></el-input>
+            </el-form-item>
+            <el-form-item label="Link">
+              <el-input v-model="formLabelAlign.type"></el-input>
+            </el-form-item>
+            <el-input placeholder="Description" type="textarea" v-model="formLabelAlign.type"></el-input>
+          </el-form>
+        </el-col>
+      </el-row>
     </el-drawer>
   </el-container>
 </template>
@@ -29,7 +58,14 @@ export default {
   components: { Header, EBtn },
   data() {
     return {
+      labelPosition: "left",
+      formLabelAlign: {
+        name: "",
+        region: "",
+        type: "",
+      },
       drawer: false,
+      input: "",
       drawerOptions: {
         destroyOnClose: true,
         direction: "rtl",
