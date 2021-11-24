@@ -3,6 +3,11 @@ import App from "./App.vue";
 import router from './router'
 import i18n from './i18n'
 import store from './store';
+import lang from 'element-ui/lib/locale/lang/en'
+import locale from 'element-ui/lib/locale'
+
+// configure language
+locale.use(lang)
 
 Vue.config.productionTip = false;
 
