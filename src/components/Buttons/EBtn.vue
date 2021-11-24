@@ -18,10 +18,13 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   name: "EBtn",
   props: {
+    method: {
+      type: Function,
+    },
     icon: {
       type: String,
       required: false,

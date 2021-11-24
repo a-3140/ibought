@@ -24,24 +24,41 @@
             :model="formLabelAlign"
           >
             <el-form-item label="Date">
-              <el-input v-model="formLabelAlign.name"></el-input>
+              <el-date-picker
+                v-model="initialDate"
+                type="date"
+                placeholder="Pick a day"
+              >
+              </el-date-picker>
             </el-form-item>
             <el-form-item label="Item Name">
               <el-input v-model="formLabelAlign.name"></el-input>
             </el-form-item>
             <el-form-item label="Category">
-              <el-input v-model="formLabelAlign.region"></el-input>
+              <el-select v-model="category" placeholder="Select a category">
+                <el-option label="Gadget" value="gadget"></el-option>
+                <el-option label="Furniture" value="furniture"></el-option>
+              </el-select>
             </el-form-item>
             <el-form-item label="Days">
-              <el-input v-model="formLabelAlign.type"></el-input>
+              <el-input-number
+                v-model="days"
+                @change="handleChange"
+                :min="1"
+                :max="10"
+              ></el-input-number>
             </el-form-item>
             <el-form-item label="Price">
-              <el-input v-model="formLabelAlign.type"></el-input>
+              <el-input type="number" v-model="price"></el-input>
             </el-form-item>
             <el-form-item label="Link">
               <el-input v-model="formLabelAlign.type"></el-input>
             </el-form-item>
-            <el-input placeholder="Description" type="textarea" v-model="formLabelAlign.type"></el-input>
+            <el-input
+              placeholder="Description"
+              type="textarea"
+              v-model="formLabelAlign.type"
+            ></el-input>
           </el-form>
         </el-col>
       </el-row>
@@ -58,7 +75,11 @@ export default {
   components: { Header, EBtn },
   data() {
     return {
+      category: "",
+      days: 1,
+      initialDate: "",
       labelPosition: "left",
+      price: "1.00",
       formLabelAlign: {
         name: "",
         region: "",
@@ -78,6 +99,9 @@ export default {
     };
   },
   methods: {
+    handleChange(value) {
+      console.log(value);
+    },
     toggleDrawer() {
       console.log("drawer toggle");
       this.drawer = !this.drawer;
