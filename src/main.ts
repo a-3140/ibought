@@ -86,6 +86,8 @@ import {
   Notification,
 } from "element-ui";
 
+import './registerServiceWorker'
+
 
 Vue.use(Pagination);
 Vue.use(Dialog);
