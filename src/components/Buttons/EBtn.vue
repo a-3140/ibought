@@ -1,6 +1,9 @@
 <template>
   <div class="btn-container">
-    <el-button :type="type" :icon="icon" round>{{ text }}</el-button>
+    <el-button v-if="text" :type="type" :icon="icon" round>{{
+      text
+    }}</el-button>
+    <el-button v-else :type="type" :icon="icon" circle />
   </div>
 </template>
 
@@ -15,6 +18,7 @@ export default {
     text: {
       type: String,
       required: false,
+      default: null,
     },
     type: {
       type: String,
