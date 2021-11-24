@@ -15,6 +15,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/allowed',
     name: 'Allowed',
+    alias: '/',
     meta: { layout: LayoutDefault },
     component: () => import('../views/Allowed.vue')
   },
