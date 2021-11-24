@@ -40,7 +40,7 @@
                 <el-option label="Furniture" value="furniture"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="Days">
+            <el-form-item label="Days of wait">
               <el-input-number
                 v-model="days"
                 @change="handleChange"
@@ -51,17 +51,15 @@
             <el-form-item label="Price">
               <el-input type="number" v-model="price"></el-input>
             </el-form-item>
-            <el-form-item label="Link">
-              <el-input v-model="formLabelAlign.type"></el-input>
-            </el-form-item>
             <el-input
-              placeholder="Description"
+              placeholder="Note"
               type="textarea"
               v-model="formLabelAlign.type"
             ></el-input>
           </el-form>
         </el-col>
       </el-row>
+      <e-btn v-bind="saveButton" />
     </el-drawer>
   </el-container>
 </template>
@@ -95,7 +93,14 @@ export default {
       button: {
         type: "danger",
         icon: "el-icon-circle-plus",
+        text: "I want",
       },
+      saveButton: {
+        type: "danger",
+        icon: "el-icon-check",
+        text: "Save",
+      },
+
     };
   },
   methods: {
