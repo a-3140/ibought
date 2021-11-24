@@ -35,7 +35,7 @@ import ECard from "../components/ECard.vue";
           shopName: "Shopee",
           price: 20000,
           dateAdded: new Date(2021, 10, 17), // 2 days ago
-          daysToDelay: 7,
+          daysToDelay: 8,
         },
         {
           id: 2,

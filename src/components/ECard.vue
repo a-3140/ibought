@@ -12,9 +12,9 @@
     <div class="box-item-price">
       <div>{{ formattedPrice }} {{ currency }}</div>
       <div>
-          <!-- :color="getStatus(dateAdded, daysToDelay)" -->
         <el-progress
-          type="circle"
+          type="line"
+          :color="progressColor"
           :show-text="false"
           :width="26"
           :percentage="progressPercentage"
@@ -33,19 +33,26 @@ export default Vue.extend({
     return {
       currency: "PHP",
       dateStart: this.dateAdded,
+      color: "#f56c6c",
+      status: 'warning'
     };
   },
   computed: {
+    progressColor(): string {
+      // * success => #67C23A
+      // * warning => #E6A23C
+      return this.daysLeft < 0 ? "#67C23A" : "#E6A23C";
+    },
     formattedPrice(): string {
       return this.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
     },
     diffDateTodayDateAdded(): number {
-      const today = this.today.getTime()
-      const dateAdded = this.dateAdded as Date
+      const today = this.today.getTime();
+      const dateAdded = this.dateAdded as Date;
       return this.getDaysByMilliseconds(today - dateAdded.getTime());
     },
     daysLeft(): number {
-      return (this.daysToDelay + 1) - this.diffDateTodayDateAdded;
+      return this.daysToDelay + 1 - this.diffDateTodayDateAdded;
     },
     daysLeftMessage(): string {
       if (this.daysLeft < 0) {
@@ -58,7 +65,10 @@ export default Vue.extend({
       return `${this.daysLeft} Days Left`;
     },
     progressPercentage(): number {
-      return this.getPercentage(this.daysToDelay - this.daysLeft, this.daysToDelay); 
+      return this.getValidPercentage(
+        this.daysToDelay - this.daysLeft,
+        this.daysToDelay
+      );
     },
     today(): Date {
       return new Date() as Date;
@@ -99,8 +109,9 @@ export default Vue.extend({
       const oneDayInMilliseconds = 1000 * 60 * 60 * 24;
       return Math.round(milliseconds / oneDayInMilliseconds);
     },
-    getPercentage(progress: number, goal: number): number {
-      return Math.abs((progress * 100 ) / goal);
+    getValidPercentage(progress: number, goal: number): number {
+      const actualVal = Math.abs((progress * 100) / goal);
+      return actualVal > 100 ? 100 : actualVal;
     },
     // getStatus(date_added: Date, days_to_delay: number): string {
     //   : "#f56c6c"
