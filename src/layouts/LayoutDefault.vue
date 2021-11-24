@@ -49,7 +49,7 @@
               ></el-input-number>
             </el-form-item>
             <el-form-item label="Price">
-              <el-input type="number" v-model="price"></el-input>
+              <el-input type="number" min="0.0" precision="2" v-model="price"></el-input>
             </el-form-item>
             <el-input
               placeholder="Note"
