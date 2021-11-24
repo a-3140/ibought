@@ -22,3 +22,9 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### GIT COMMITS
+`[feature]`: Whole feature
+`[ui]`: UI changes
+`[tech]`: Blanket for anything else
