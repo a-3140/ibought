@@ -47,7 +47,7 @@ export default Vue.extend({
     },
     diffDateTodayDateAdded(): number {
       const today = this.today.getTime();
-      const dateAdded = this.dateAdded as Date;
+      const dateAdded = new Date(this.dateAdded);
       return this.getDaysByMilliseconds(today - dateAdded.getTime());
     },
     daysLeft(): number {
@@ -95,9 +95,9 @@ export default Vue.extend({
       default: 0,
     },
     dateAdded: {
-      type: Date,
+      type: String,
       required: true,
-      default: new Date(),
+      default: '',
     },
   },
   methods: {
