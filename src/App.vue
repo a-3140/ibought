@@ -13,8 +13,9 @@ export default {
 </script>
 
 <style lang="scss">
-html, body {
+body {
   background: #F1F3F4;
+  padding: 0;
   margin: 0;
 }
 #app {

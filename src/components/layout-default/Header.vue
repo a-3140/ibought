@@ -66,6 +66,6 @@ export default {
   left: 0;
   bottom: 0;
   background: #F1F3F4;
-  z-index: 9999;
+  z-index: 1;
 }
 </style>
