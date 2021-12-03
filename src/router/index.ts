@@ -8,13 +8,13 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/wants',
-    name: 'Wants',
+    name: 'wants',
     component: Wants,
     meta: { layout: LayoutDefault }
   },
   {
     path: '/allowed',
-    name: 'Allowed',
+    name: 'allowed',
     alias: '/',
     meta: { layout: LayoutDefault },
     component: () => import('../views/Allowed.vue')

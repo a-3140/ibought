@@ -2,7 +2,7 @@
   <div class="mobile-top-nav-container">
     <div class="mobile-top-nav">
       <i class="el-icon-setting" />
-      <span>{{ title }}</span>
+      <span>{{ currentTitle }}</span>
       <i class="el-icon-user" />
     </div>
   </div>
@@ -11,11 +11,18 @@
 <script>
 export default {
   name: "NavTop",
-  data() {
-    return {
-      title: 'wants'
-    }
-  }
+  props: {
+    title: {
+      type: String,
+      required: false,
+      default: "",
+    },
+  },
+  computed: {
+    currentTitle() {
+      return this.title ? this.title : this.$route.name;
+    },
+  },
 };
 </script>
 
@@ -28,7 +35,7 @@ export default {
   height: 60px;
   position: fixed;
   top: 0;
-  background-color: #F1F3F4;
+  background-color: #f1f3f4;
   z-index: 1;
 }
 .mobile-top-nav {
@@ -40,7 +47,7 @@ export default {
   padding-left: 2em;
   padding-right: 2em;
 }
-.mobile-top-nav i{
+.mobile-top-nav i {
   font-size: 1.25em;
   color: #505050;
 }
