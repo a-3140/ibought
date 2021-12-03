@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <nav-bottom />
     <div>
       <slot />
     </div>
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import Header from "../components/layout-default/Header.vue";
+import NavBottom from "../components/NavBottom.vue";
 import AddWantForm from "../components/Forms/AddWant.vue";
 
 export default {
   name: "LayoutDefault",
-  components: { Header, AddWantForm },
+  components: { NavBottom, AddWantForm },
   data() {
     return {
       category: "",

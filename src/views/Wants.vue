@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mobile-top-nav />
+    <nav-top />
     <div class="content">
       <div class="all-cards-container">
         <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
@@ -11,12 +11,12 @@
 
 <script>
 import ECard from "../components/ECard.vue";
-import MobileTopNav from "../components/layout-default/MobileTopNav.vue";
+import NavTop from "../components/NavTop.vue";
 import { WANT_QUERY } from "../graphql";
 
 export default {
   name: "Wants",
-  components: { ECard, MobileTopNav },
+  components: { ECard, NavTop },
   data() {
     return {
       wantList: [

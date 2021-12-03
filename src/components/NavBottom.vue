@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "Header",
+  name: "NavBottom",
   data() {
     return {
       routerEnabled: true,
@@ -40,12 +40,6 @@ export default {
   },
   created() {
     this.defaultActiveIndex = this.header_paths[0].path;
-  },
-  // for testing
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
   },
 };
 </script>

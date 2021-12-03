@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "MobileTopNav",
+  name: "NavTop",
   data() {
     return {
       title: 'wants'
