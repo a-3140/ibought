@@ -4,7 +4,6 @@
     :router="routerEnabled"
     :default-active="defaultActiveIndex"
     mode="horizontal"
-    @select="handleSelect"
   >
     <el-menu-item
       v-for="item in header_paths"
