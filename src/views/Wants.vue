@@ -2,7 +2,9 @@
   <div>
     <mobile-top-nav />
     <div class="content">
-      <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
+      <div class="all-cards-container">
+        <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
+      </div>
     </div>
   </div>
 </template>
@@ -34,9 +36,15 @@ export default {
   border-top-left-radius: 1.5em;
   border-top-right-radius: 1.5em;
   background: #e4e4e6;
-  min-height: 100vh;
   z-index: -999;
-  padding-top: 1em;
+  padding-top: 2em;
+  min-height: 100vh;
+}
+.all-cards-container {
+  margin: 1.5em;
+  padding: 1em;
+  border-radius: 1em;
+  background: #ffffff;
 }
 .text-info {
   color: #909399;

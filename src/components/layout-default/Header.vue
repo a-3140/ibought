@@ -57,6 +57,7 @@ export default {
   background: none !important;
 }
 .nav-container {
+  padding-bottom: 10px;
   border-top: 1px solid #ccc;
   position: fixed;
   display: flex;

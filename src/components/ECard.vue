@@ -1,25 +1,25 @@
 <template>
-  <div class="box-container">
-    <div class="box-item">
-      <p class="box-item-name">{{ name }}</p>
-      <p class="box-item-store">
-        <b>{{ shopName }}</b>
-      </p>
-      <p class="box-item-note">
-        {{ daysLeftMessage }}
-      </p>
-    </div>
-    <div class="box-item-price">
-      <div>{{ formattedPrice }} {{ currency }}</div>
-      <div>
-        <el-progress
-          type="line"
-          :color="progressColor"
-          :show-text="false"
-          :width="26"
-          :percentage="progressPercentage"
-        ></el-progress>
+  <div class="card-container">
+    <div class="box-container">
+      <div class="box-item">
+        <p class="box-item-name">{{ shortenedName }}</p>
+        <p class="box-item-note">
+          {{ daysLeftMessage }}
+        </p>
       </div>
+
+      <div class="box-item-price">
+        <div>{{ formattedPrice }} {{ currency }}</div>
+      </div>
+    </div>
+    <div>
+      <el-progress
+        type="line"
+        :color="progressColor"
+        :show-text="false"
+        :width="100"
+        :percentage="progressPercentage"
+      ></el-progress>
     </div>
   </div>
 </template>
@@ -34,10 +34,14 @@ export default Vue.extend({
       currency: "PHP",
       dateStart: this.dateAdded,
       color: "#f56c6c",
-      status: 'warning'
+      status: "warning",
     };
   },
   computed: {
+    // refactor and handle edge cases
+    shortenedName(): string {
+      return this.name.slice(0, 15) + "...";
+    },
     progressColor(): string {
       // primary & textColor from element-ui
       return this.daysLeft < 0 ? "#409EFF" : "#303133";
@@ -97,7 +101,7 @@ export default Vue.extend({
     dateAdded: {
       type: String,
       required: true,
-      default: '',
+      default: "",
     },
   },
   methods: {
@@ -122,12 +126,14 @@ export default Vue.extend({
 
 
 <style scoped>
+.card-container {
+  padding: 1em;
+  margin: 1em 1em;
+  border-bottom: 1px solid #c0c4cc;
+}
 .box-container {
   margin-right: 0;
-  border-bottom: 1px solid #c0c4cc;
   text-align: left;
-  padding: 2em 1em;
-  margin: 2em 1em;
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -155,6 +161,6 @@ export default Vue.extend({
   font-weight: bold;
 }
 .el-progress {
-  padding: 16px;
+  padding: .5em 0;
 }
 </style>
