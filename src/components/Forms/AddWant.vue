@@ -1,10 +1,5 @@
 <template>
-  <el-drawer
-    :visible.sync="drawer"
-    :direction="drawerOptions.direction"
-    :destroy-on-close="drawerOptions.destroyOnClose"
-    :size="drawerOptions.size"
-  >
+  <div>
     <el-divider />
     <el-row type="flex" justify="center" class="row-bg">
       <el-col :xs="20">
@@ -57,19 +52,12 @@
     <div class="fixed-button">
       <el-button class="save-btn" type="info">save</el-button>
     </div>
-  </el-drawer>
+  </div>
 </template>
 
 <script>
 export default {
   name: "AddWantForm",
-  props: {
-    drawer: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
-  },
   data() {
     return {
       category: "",
@@ -83,11 +71,6 @@ export default {
         type: "",
       },
       input: "",
-      drawerOptions: {
-        destroyOnClose: true,
-        direction: "rtl",
-        size: "100%",
-      },
       saveButton: {
         type: "info",
         icon: "el-icon-check",

@@ -1,12 +1,21 @@
 <template>
   <div>
-    <add-want-form v-bind:drawer="drawer" />
     <div class="content">
       <div class="all-cards-container">
         <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
       </div>
     </div>
     <e-btn @btn-function="toggleDrawer" v-bind="button" />
+    <el-drawer
+      :visible.sync="drawer"
+      :direction="drawerOptions.direction"
+      :destroy-on-close="drawerOptions.destroyOnClose"
+      :size="drawerOptions.size"
+    >
+      <slot>
+        <add-want-form />
+      </slot>
+    </el-drawer>
   </div>
 </template>
 
@@ -22,6 +31,12 @@ export default {
   data() {
     return {
       drawer: false,
+      drawerOptions: {
+        destroyOnClose: true,
+        direction: "rtl",
+        size: "100%",
+      },
+
       button: {
         type: "info",
         icon: "el-icon-circle-plus",
