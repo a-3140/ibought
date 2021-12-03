@@ -1,7 +1,9 @@
 <template>
   <div class="mobile-top-nav-container">
-    Test
-    <el-divider />
+    <div class="mobile-top-nav">
+      <i class="el-icon-s-tools" />
+      <i class="el-icon-user-solid" />
+    </div>
   </div>
 </template>
 
@@ -14,7 +16,21 @@ export default {
 
 <style scoped>
 .mobile-top-nav-container {
-  height: 150px;
   width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.mobile-top-nav {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  justify-content: space-between;
+  align-content: center;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.mobile-top-nav i{
+  font-size: 25px;
+  color: #505050;
 }
 </style>

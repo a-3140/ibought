@@ -87,12 +87,12 @@ export default {
         size: "100%",
       },
       button: {
-        type: "primary",
+        type: "info",
         icon: "el-icon-circle-plus",
         text: "I want",
       },
       saveButton: {
-        type: "primary",
+        type: "info",
         icon: "el-icon-check",
         text: "Save",
       },

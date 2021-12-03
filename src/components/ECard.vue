@@ -127,6 +127,7 @@ export default Vue.extend({
   border-bottom: 1px solid #c0c4cc;
   text-align: left;
   padding: 2em 1em;
+  margin: 2em 1em;
   display: flex;
   justify-content: space-between;
   align-content: center;

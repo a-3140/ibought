@@ -27,12 +27,12 @@ export default {
       header_paths: [
         {
           path: "/wants",
-          name: "Wants",
+          name: "wants",
           index: 1,
         },
         {
           path: "/allowed",
-          name: "Allowed",
+          name: "allowed",
           index: 2,
         },
       ],
@@ -52,16 +52,19 @@ export default {
 
 
 <style scoped>
-.el-menu.el-menu--horizontal {
-  border-bottom: none;
-  border-top: solid 1px #e6e6e6;
+.el-menu-item {
+  border-bottom: none !important;
+  background: none !important;
 }
 .nav-container {
+  border-top: 1px solid #ccc;
   position: fixed;
-  bottom: 20px;
   display: flex;
   justify-content: space-between;
-  width: calc(100% - 8px);
-  left: 4px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #F1F3F4;
+  z-index: 9999;
 }
 </style>
