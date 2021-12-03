@@ -1,20 +1,18 @@
 <template>
   <div>
-    <div class="box">
-      <h1>Wants</h1>
-      <p class="text-info">Arvin Mark Atienza</p>
-    </div>
+    <mobile-top-nav />
     <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
   </div>
 </template>
 
 <script>
 import ECard from "../components/ECard.vue";
+import MobileTopNav from "../components/layout-default/MobileTopNav.vue"
 import { WANT_QUERY } from "../graphql";
 
 export default {
   name: "Wants",
-  components: { ECard },
+  components: { ECard, MobileTopNav },
   data() {
     return {
       wantList: [],
