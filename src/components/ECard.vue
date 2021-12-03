@@ -59,13 +59,13 @@ export default Vue.extend({
     },
     daysLeftMessage(): string {
       if (this.daysLeft < 0) {
-        return `${this.daysToDelay} Days DONE!!!`;
+        return `${this.daysToDelay} days done!`;
       } else if (this.daysLeft === 1) {
-        return `${this.daysLeft} Day Left!`;
+        return `${this.daysLeft} day left!`;
       } else if (this.daysLeft === 0) {
-        return `Last Day Today!`;
+        return `last day today!`;
       }
-      return `${this.daysLeft} Days Left`;
+      return `${this.daysLeft} days left`;
     },
     progressPercentage(): number {
       return this.getValidPercentage(
