@@ -25,6 +25,11 @@ export default {
   width: 100%;
   padding: 0;
   margin: 0;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  background-color: #F1F3F4;
+  z-index: 1;
 }
 .mobile-top-nav {
   display: flex;

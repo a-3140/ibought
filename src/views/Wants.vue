@@ -19,7 +19,16 @@ export default {
   components: { ECard, MobileTopNav },
   data() {
     return {
-      wantList: [],
+      wantList: [
+        {
+          id: 1,
+          name: "Macbook sample",
+          shopName: "Shopee",
+          price: 20000,
+          dateAdded: "2021-12-01",
+          daysToDelay: 8,
+        },
+      ],
     };
   },
   apollo: {
@@ -36,9 +45,10 @@ export default {
   text-align: left;
   background: #e4e4e6;
   z-index: -999;
-  min-height: 100vh;
+  min-height: calc(100vh - 120px);
   padding-top: .5em;
   padding-bottom: 5em;
+  margin-top: 60px;
 }
 .title {
   font-size: 1.5em;
