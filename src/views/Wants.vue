@@ -1,24 +1,32 @@
 <template>
   <div>
-    <nav-top />
+    <add-want-form v-bind:drawer="drawer" />
     <div class="content">
       <div class="all-cards-container">
         <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
       </div>
     </div>
+    <e-btn @btn-function="toggleDrawer" v-bind="button" />
   </div>
 </template>
 
 <script>
 import ECard from "../components/ECard.vue";
-import NavTop from "../components/NavTop.vue";
 import { WANT_QUERY } from "../graphql";
+import AddWantForm from "../components/Forms/AddWant.vue";
+import EBtn from "../components/Buttons/EBtn.vue";
 
 export default {
   name: "Wants",
-  components: { ECard, NavTop },
+  components: { ECard, AddWantForm, EBtn },
   data() {
     return {
+      drawer: false,
+      button: {
+        type: "info",
+        icon: "el-icon-circle-plus",
+        text: "I want",
+      },
       wantList: [
         {
           id: 1,
@@ -37,6 +45,11 @@ export default {
       update: (data) => data.wants,
     },
   },
+  methods: {
+    toggleDrawer() {
+      this.drawer = !this.drawer;
+    },
+  },
 };
 </script>
 
@@ -46,21 +59,21 @@ export default {
   background: #e4e4e6;
   z-index: -999;
   min-height: calc(100vh - 120px);
-  padding-top: .5em;
+  padding-top: 0.5em;
   padding-bottom: 5em;
   margin-top: 60px;
 }
 .title {
   font-size: 1.5em;
   font-weight: normal;
-  padding-left: 1em;;
+  padding-left: 1em;
   margin-bottom: 0;
 }
 .all-cards-container {
   margin: 1.5em;
   margin-top: 1em;
   padding: 1em;
-  padding-top: .1em;
+  padding-top: 0.1em;
   border-radius: 1em;
   background: #ffffff;
 }

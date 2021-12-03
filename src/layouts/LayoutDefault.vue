@@ -1,20 +1,20 @@
 <template>
   <div>
-    <nav-bottom />
+    <nav-top />
     <div>
       <slot />
     </div>
-    <add-want-form />
+    <nav-bottom />
   </div>
 </template>
 
 <script>
 import NavBottom from "../components/NavBottom.vue";
-import AddWantForm from "../components/Forms/AddWant.vue";
+import NavTop from "../components/NavTop.vue";
 
 export default {
   name: "LayoutDefault",
-  components: { NavBottom, AddWantForm },
+  components: { NavBottom, NavTop },
   data() {
     return {
       category: "",
