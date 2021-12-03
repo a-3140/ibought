@@ -2,7 +2,6 @@
   <div>
     <mobile-top-nav />
     <div class="content">
-      <b class="title">Wants</b>
       <div class="all-cards-container">
         <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
       </div>
@@ -35,12 +34,10 @@ export default {
 <style scoped>
 .content {
   text-align: left;
-  border-top-left-radius: 1.5em;
-  border-top-right-radius: 1.5em;
   background: #e4e4e6;
   z-index: -999;
   min-height: 100vh;
-  padding-top: 1.5em;
+  padding-top: .5em;
   padding-bottom: 5em;
 }
 .title {

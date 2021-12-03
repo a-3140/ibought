@@ -116,10 +116,6 @@ export default Vue.extend({
       const actualVal = Math.abs((progress * 100) / goal);
       return actualVal > 100 ? 100 : actualVal;
     },
-    // getStatus(date_added: Date, days_to_delay: number): string {
-    //   : "#f56c6c"
-    //   return "#6f7ad3";
-    // },
   },
 });
 </script>
@@ -127,9 +123,9 @@ export default Vue.extend({
 
 <style scoped>
 .card-container {
-  padding: 1em;
-  margin: 1em 1em;
-  border-bottom: 1px solid #c0c4cc;
+  padding: 1.25em .25em;
+  margin: 1.25em .25em;
+  border-bottom: 1px solid #F6F6F6;
 }
 .box-container {
   margin-right: 0;
@@ -152,6 +148,7 @@ export default Vue.extend({
   color: #909399;
   margin: 0;
   margin-top: 4px;
+  font-size: 0.8em;
 }
 .box-item-price {
   display: flex;

@@ -2,6 +2,7 @@
   <div class="mobile-top-nav-container">
     <div class="mobile-top-nav">
       <i class="el-icon-s-tools" />
+      <span>{{ title }}</span>
       <i class="el-icon-user-solid" />
     </div>
   </div>
@@ -10,6 +11,11 @@
 <script>
 export default {
   name: "MobileTopNav",
+  data() {
+    return {
+      title: 'Wants'
+    }
+  }
 };
 </script>
 

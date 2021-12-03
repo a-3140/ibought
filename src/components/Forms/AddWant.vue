@@ -55,7 +55,11 @@
           </el-form>
         </el-col>
       </el-row>
-      <e-btn v-bind="saveButton" />
+      <div class="fixed-button">
+        <!-- <e-btn v-bind="saveButton" />
+        <el-button /> -->
+        <el-button class="save-btn" type="info" >save</el-button>
+      </div>
     </el-drawer>
     <e-btn @btn-function="toggleDrawer" v-bind="button" />
   </div>
@@ -111,4 +115,13 @@ export default {
 </script>
 
 <style scoped>
+.save-btn {
+    width: 100%;
+    height: 50px;
+}
+.fixed-button {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
 </style>
