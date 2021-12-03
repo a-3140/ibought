@@ -50,6 +50,7 @@ export default {
   margin: 1.5em;
   margin-top: 1em;
   padding: 1em;
+  padding-top: .1em;
   border-radius: 1em;
   background: #ffffff;
 }

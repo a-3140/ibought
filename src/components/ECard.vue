@@ -31,7 +31,7 @@ export default Vue.extend({
   name: "ECard",
   data() {
     return {
-      currency: "PHP",
+      currency: "php",
       dateStart: this.dateAdded,
       color: "#f56c6c",
       status: "warning",
@@ -40,7 +40,7 @@ export default Vue.extend({
   computed: {
     // refactor and handle edge cases
     shortenedName(): string {
-      return this.name.slice(0, 15) + "...";
+      return this.name.toLowerCase().slice(0, 15) + "...";
     },
     progressColor(): string {
       // primary & textColor from element-ui

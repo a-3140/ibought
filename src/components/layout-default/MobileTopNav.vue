@@ -1,9 +1,9 @@
 <template>
   <div class="mobile-top-nav-container">
     <div class="mobile-top-nav">
-      <i class="el-icon-s-tools" />
+      <i class="el-icon-setting" />
       <span>{{ title }}</span>
-      <i class="el-icon-user-solid" />
+      <i class="el-icon-user" />
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
   name: "MobileTopNav",
   data() {
     return {
-      title: 'Wants'
+      title: 'wants'
     }
   }
 };
@@ -32,11 +32,11 @@ export default {
   height: 60px;
   justify-content: space-between;
   align-content: center;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 .mobile-top-nav i{
-  font-size: 25px;
+  font-size: 1.25em;
   color: #505050;
 }
 </style>

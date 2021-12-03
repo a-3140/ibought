@@ -14,10 +14,15 @@ export default {
 
 <style lang="scss">
 body {
-  background: #F1F3F4;
+  background: #f1f3f4;
   padding: 0;
   margin: 0;
 }
+.el-button--info,
+.el-button--info:hover {
+  background-color: #000000 !important;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,6 +30,5 @@ body {
   text-align: center;
   color: #2c3e50;
 }
-
 </style>
 
