@@ -12,7 +12,12 @@
             </el-date-picker>
           </el-form-item>
           <el-form-item>
-            <el-input v-model="formLabelAlign.name" maxlength="100" placeholder="name" />
+            <el-input
+              v-model="formLabelAlign.name"
+              :maxlength="100"
+              :show-word-limit="nameShowWordLimit"
+              placeholder="name"
+            />
           </el-form-item>
           <el-form-item>
             <el-select
@@ -108,6 +113,11 @@ export default {
         text: "Save",
       },
     };
+  },
+  computed: {
+    nameShowWordLimit() {
+      return this.formLabelAlign.name.length > 75 ? true : false;
+    },
   },
   methods: {
     uploadImg() {
