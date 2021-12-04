@@ -41,6 +41,13 @@
                 :value="item.value"
               >
               </el-option>
+              <el-tooltip
+                content="edit categories"
+                placement="top"
+                slot="prefix"
+              >
+                <i class="el-icon-edit-outline" @click="editCategories()" />
+              </el-tooltip>
             </el-select>
           </el-form-item>
           <el-form-item
@@ -70,11 +77,9 @@
 
           <el-form-item>
             <el-input placeholder="note" v-model="formLabelAlign.note">
-              <i
-                class="el-icon-picture-outline"
-                @click="uploadImg()"
-                slot="suffix"
-              />
+              <el-tooltip content="upload image" placement="top" slot="suffix">
+                <i class="el-icon-picture-outline" @click="uploadImg()" />
+              </el-tooltip>
             </el-input>
           </el-form-item>
         </el-form>
@@ -132,6 +137,9 @@ export default {
     },
   },
   methods: {
+    editCategories() {
+      alert("feature to be added");
+    },
     uploadImg() {
       alert("feature to be added");
     },
