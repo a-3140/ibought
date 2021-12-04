@@ -12,7 +12,7 @@
             </el-date-picker>
           </el-form-item>
           <el-form-item>
-            <el-input placeholder="name" />
+            <el-input v-model="formLabelAlign.name" maxlength="100" placeholder="name" />
           </el-form-item>
           <el-form-item>
             <el-select
