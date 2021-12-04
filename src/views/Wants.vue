@@ -12,6 +12,11 @@
       :destroy-on-close="drawerOptions.destroyOnClose"
       :size="drawerOptions.size"
     >
+      <template slot="title">
+        <div class="form-title">
+          {{ $t('wantForm.title') }}
+        </div>
+      </template>
       <slot>
         <add-want-form />
       </slot>
@@ -69,6 +74,12 @@ export default {
 </script>
 
 <style scoped>
+.form-title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #000000;
+}
 .content {
   text-align: left;
   background: #e4e4e6;
