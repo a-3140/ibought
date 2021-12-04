@@ -9,6 +9,7 @@
               type="date"
               placeholder="date added"
               :picker-options="datePickerOptions"
+              :editable="false"
             >
             </el-date-picker>
           </el-form-item>
