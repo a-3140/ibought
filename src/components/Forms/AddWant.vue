@@ -69,18 +69,22 @@
             </el-input>
           </el-form-item>
           <el-form-item
-            prop="days"
             :rules="[
               { required: true, message: 'days is required' },
               { type: 'number', message: 'days must be a number' },
             ]"
           >
-            <el-input
-              type="days"
-              v-model.number="form.days"
-              complete="off"
+            <el-select
+              v-model="form.days"
               placeholder="days"
-            ></el-input>
+            >
+              <el-option
+                v-for="item in dayOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
           </el-form-item>
 
           <el-form-item>
@@ -114,7 +118,7 @@ export default {
       form: {
         category: [],
         price: "",
-        days: "",
+        days: "1 day",
         name: "",
         region: "",
         type: "",
@@ -122,6 +126,13 @@ export default {
         source: "",
         initialDate: new Date(),
       },
+      dayOptions: Array(365)
+        .fill(0)
+        .map((_, i) => {
+          const day = i + 1;
+          const suffix = day === 1 ? " day" : " days";
+          return { label: day + suffix, value: day };
+        }),
       options: [
         {
           value: "gadgets",
