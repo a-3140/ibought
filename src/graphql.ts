@@ -6,7 +6,7 @@ export const WANT_QUERY = gql`
       id
       name
       dateAdded
-      shopName
+      source
       daysToDelay
       price
     }

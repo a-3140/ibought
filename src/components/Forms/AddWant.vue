@@ -20,6 +20,14 @@
             />
           </el-form-item>
           <el-form-item>
+            <el-input
+              v-model="formLabelAlign.source"
+              :maxlength="2000"
+              :show-word-limit="sourceShowWordLimit"
+              placeholder="source ( link or shop )"
+            />
+          </el-form-item>
+          <el-form-item>
             <el-select
               allow-create
               filterable
@@ -95,6 +103,7 @@ export default {
         region: "",
         type: "",
         note: "",
+        source: "",
       },
       options: [
         {
@@ -117,6 +126,9 @@ export default {
   computed: {
     nameShowWordLimit() {
       return this.formLabelAlign.name.length > 75 ? true : false;
+    },
+    sourceShowWordLimit() {
+      return this.formLabelAlign.source.length > 255 ? true : false;
     },
   },
   methods: {

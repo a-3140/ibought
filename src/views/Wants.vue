@@ -51,7 +51,7 @@ export default {
         {
           id: 1,
           name: "Macbook sample",
-          shopName: "Shopee",
+          source: "Shopee",
           price: 20000,
           dateAdded: "2021-12-01",
           daysToDelay: 8,

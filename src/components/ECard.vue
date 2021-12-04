@@ -83,7 +83,7 @@ export default Vue.extend({
       required: true,
       default: "",
     },
-    shopName: {
+    source: {
       type: String,
       required: true,
       default: "",
