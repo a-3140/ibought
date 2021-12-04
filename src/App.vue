@@ -19,8 +19,9 @@ body {
   margin: 0;
 }
 .el-button--info,
-.el-button--info:hover {
-  background-color: #000000 !important;
+.el-button--info:hover,
+.el-button--info:focus {
+  background-color: #000000;
 }
 
 #app {

@@ -2,7 +2,7 @@
   <div>
     <el-row type="flex" justify="center" class="row-bg">
       <el-col :xs="20">
-        <el-form ref="numberValidateForm" :model="form">
+        <el-form ref="form" :model="form" @input.native="updateIsFormValidated">
           <el-form-item>
             <el-date-picker
               v-model="form.initialDate"
@@ -74,10 +74,7 @@
               { type: 'number', message: 'days must be a number' },
             ]"
           >
-            <el-select
-              v-model="form.days"
-              placeholder="days"
-            >
+            <el-select v-model="form.days" placeholder="days">
               <el-option
                 v-for="item in dayOptions"
                 :key="item.value"
@@ -98,7 +95,15 @@
       </el-col>
     </el-row>
     <div class="fixed-button">
-      <el-button class="save-btn" round type="info">save</el-button>
+      <el-button
+        class="save-btn"
+        round
+        type="info"
+        @click="onSubmit"
+        :disabled="!isFormValid"
+      >
+        save
+      </el-button>
     </div>
   </div>
 </template>
@@ -106,6 +111,7 @@
 <script>
 export default {
   name: "AddWantForm",
+  // enable button when name, price, and day is filled up
   data() {
     return {
       datePickerOptions: {
@@ -113,8 +119,7 @@ export default {
           return date > new Date();
         },
       },
-      currency: "php",
-      days: 1,
+      isFormValid: false,
       form: {
         category: [],
         price: "",
@@ -126,13 +131,6 @@ export default {
         source: "",
         initialDate: new Date(),
       },
-      dayOptions: Array(365)
-        .fill(0)
-        .map((_, i) => {
-          const day = i + 1;
-          const suffix = day === 1 ? " day" : " days";
-          return { label: day + suffix, value: day };
-        }),
       options: [
         {
           value: "gadgets",
@@ -143,9 +141,20 @@ export default {
           label: "furniture",
         },
       ],
+      // hardcoded
+      currency: "php",
     };
   },
   computed: {
+    dayOptions() {
+      return Array(365)
+        .fill(0)
+        .map((_, i) => {
+          const day = i + 1;
+          const suffix = day === 1 ? " day" : " days";
+          return { label: day + suffix, value: day };
+        });
+    },
     nameShowWordLimit() {
       return this.form.name.length > 75 ? true : false;
     },
@@ -154,6 +163,16 @@ export default {
     },
   },
   methods: {
+    updateIsFormValidated() {
+      this.$refs.form.validate((isValid) => {
+        this.isFormValid = isValid;
+      });
+    },
+    onSubmit() {
+      this.$refs.form.validate((isValid, errors) => {
+        console.log(isValid, errors);
+      });
+    },
     editCategories() {
       alert("feature to be added");
     },
