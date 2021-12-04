@@ -56,10 +56,13 @@
           </el-form-item>
 
           <el-form-item>
-            <el-input
-              placeholder="note"
-              v-model="formLabelAlign.note"
-            ></el-input>
+            <el-input placeholder="note" v-model="formLabelAlign.note">
+              <i
+                class="el-icon-picture-outline"
+                @click="uploadImg()"
+                slot="suffix"
+              />
+            </el-input>
           </el-form-item>
         </el-form>
       </el-col>
@@ -107,6 +110,9 @@ export default {
     };
   },
   methods: {
+    uploadImg() {
+      alert("feature to be added");
+    },
     handleChange(value) {
       console.log(value);
     },
