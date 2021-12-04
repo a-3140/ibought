@@ -121,6 +121,9 @@ export default {
 </script>
 
 <style scoped>
+.el-form-item {
+  margin-bottom: 1em;
+}
 .el-input {
   width: 100%;
 }
