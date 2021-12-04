@@ -8,6 +8,7 @@
               v-model="initialDate"
               type="date"
               placeholder="date added"
+              :picker-options="datePickerOptions"
             >
             </el-date-picker>
           </el-form-item>
@@ -96,10 +97,15 @@ export default {
   name: "AddWantForm",
   data() {
     return {
+      datePickerOptions: {
+        disabledDate(date) {
+          return date > new Date();
+        },
+      },
       currency: "php",
       category: [],
       days: 1,
-      initialDate: "",
+      initialDate: new Date(),
       labelPosition: "left",
       formLabelAlign: {
         price: "",
