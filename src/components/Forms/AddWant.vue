@@ -12,7 +12,10 @@
             >
             </el-date-picker>
           </el-form-item>
-          <el-form-item>
+          <el-form-item
+            prop="name"
+            :rules="[{ required: true, message: 'name is required' }]"
+          >
             <el-input
               v-model="form.name"
               :maxlength="100"
@@ -54,6 +57,7 @@
           <el-form-item
             prop="price"
             :rules="[
+              { required: true, message: 'price is required' },
               {
                 type: 'number',
                 message: 'price must be a number',
@@ -66,7 +70,10 @@
           </el-form-item>
           <el-form-item
             prop="days"
-            :rules="[{ type: 'number', message: 'days must be a number' }]"
+            :rules="[
+              { required: true, message: 'days is required' },
+              { type: 'number', message: 'days must be a number' },
+            ]"
           >
             <el-input
               type="days"
