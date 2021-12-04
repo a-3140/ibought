@@ -2,10 +2,10 @@
   <div>
     <el-row type="flex" justify="center" class="row-bg">
       <el-col :xs="20">
-        <el-form ref="numberValidateForm" :model="formLabelAlign">
+        <el-form ref="numberValidateForm" :model="form">
           <el-form-item>
             <el-date-picker
-              v-model="initialDate"
+              v-model="form.initialDate"
               type="date"
               placeholder="date added"
               :picker-options="datePickerOptions"
@@ -14,7 +14,7 @@
           </el-form-item>
           <el-form-item>
             <el-input
-              v-model="formLabelAlign.name"
+              v-model="form.name"
               :maxlength="100"
               :show-word-limit="nameShowWordLimit"
               placeholder="name"
@@ -22,7 +22,7 @@
           </el-form-item>
           <el-form-item>
             <el-input
-              v-model="formLabelAlign.source"
+              v-model="form.source"
               :maxlength="2000"
               :show-word-limit="sourceShowWordLimit"
               placeholder="source ( link or shop )"
@@ -32,7 +32,7 @@
             <el-select
               allow-create
               filterable
-              v-model="category"
+              v-model="form.category"
               placeholder="category"
             >
               <el-option
@@ -60,7 +60,7 @@
               },
             ]"
           >
-            <el-input placeholder="price" v-model.number="formLabelAlign.price">
+            <el-input placeholder="price" v-model.number="form.price">
               <span slot="suffix"> {{ currency }} </span>
             </el-input>
           </el-form-item>
@@ -70,14 +70,14 @@
           >
             <el-input
               type="days"
-              v-model.number="formLabelAlign.days"
+              v-model.number="form.days"
               complete="off"
               placeholder="days"
             ></el-input>
           </el-form-item>
 
           <el-form-item>
-            <el-input placeholder="note" v-model="formLabelAlign.note">
+            <el-input placeholder="note" v-model="form.note">
               <el-tooltip content="upload image" placement="top" slot="suffix">
                 <i class="el-icon-picture-outline" @click="uploadImg()" />
               </el-tooltip>
@@ -103,11 +103,9 @@ export default {
         },
       },
       currency: "php",
-      category: [],
       days: 1,
-      initialDate: new Date(),
-      labelPosition: "left",
-      formLabelAlign: {
+      form: {
+        category: [],
         price: "",
         days: "",
         name: "",
@@ -115,6 +113,7 @@ export default {
         type: "",
         note: "",
         source: "",
+        initialDate: new Date(),
       },
       options: [
         {
@@ -126,20 +125,14 @@ export default {
           label: "furniture",
         },
       ],
-      input: "",
-      saveButton: {
-        type: "info",
-        icon: "el-icon-check",
-        text: "Save",
-      },
     };
   },
   computed: {
     nameShowWordLimit() {
-      return this.formLabelAlign.name.length > 75 ? true : false;
+      return this.form.name.length > 75 ? true : false;
     },
     sourceShowWordLimit() {
-      return this.formLabelAlign.source.length > 255 ? true : false;
+      return this.form.source.length > 255 ? true : false;
     },
   },
   methods: {
@@ -148,9 +141,6 @@ export default {
     },
     uploadImg() {
       alert("feature to be added");
-    },
-    handleChange(value) {
-      console.log(value);
     },
   },
 };
