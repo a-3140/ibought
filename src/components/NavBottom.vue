@@ -29,11 +29,6 @@ export default {
           name: "wants",
           index: 1,
         },
-        {
-          path: "/allowed",
-          name: "allowed",
-          index: 2,
-        },
       ],
     };
   },
@@ -58,7 +53,7 @@ export default {
   width: 100%;
   left: 0;
   bottom: 0;
-  background: #F1F3F4;
+  background: #f1f3f4;
   z-index: 1;
 }
 </style>
