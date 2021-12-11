@@ -66,7 +66,7 @@
             ]"
           >
             <el-input placeholder="price" v-model.number="form.price">
-              <span slot="suffix"> {{ currency }} </span>
+              <template slot="append">{{ currency }}</template>
             </el-input>
           </el-form-item>
           <el-form-item
