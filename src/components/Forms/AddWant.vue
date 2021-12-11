@@ -201,7 +201,7 @@ export default {
 }
 .fixed-button {
   position: fixed;
-  bottom: 0px;
+  bottom: 10px;
   width: 100%;
 }
 </style>
