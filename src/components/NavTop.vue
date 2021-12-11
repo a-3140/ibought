@@ -1,9 +1,9 @@
 <template>
   <div class="mobile-top-nav-container">
-    <div class="mobile-top-nav">
-      <i class="el-icon-setting" />
+    <div class="mobile-top-nav" :class="showSideIcons ? 'spaced' : 'center'">
+      <i v-if="showSideIcons" class="el-icon-setting" />
       <span>{{ currentTitle }}</span>
-      <i class="el-icon-user" />
+      <i v-if="showSideIcons" class="el-icon-user" />
     </div>
   </div>
 </template>
@@ -17,6 +17,11 @@ export default {
       required: false,
       default: "",
     },
+    showSideIcons: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   computed: {
     currentTitle() {
@@ -28,6 +33,14 @@ export default {
 
 
 <style scoped>
+.spaced {
+  justify-content: space-between;
+}
+
+.center {
+  justify-content: center;
+}
+
 .mobile-top-nav-container {
   width: 100%;
   padding: 0;
@@ -42,7 +55,6 @@ export default {
   display: flex;
   align-items: center;
   height: 60px;
-  justify-content: space-between;
   align-content: center;
   padding-left: 2em;
   padding-right: 2em;
