@@ -14,7 +14,7 @@
     >
       <template slot="title">
         <div class="form-title">
-          {{ $t('wantForm.title') }}
+          {{ $t("wantForm.title") }}
         </div>
       </template>
       <slot>
@@ -62,7 +62,11 @@ export default {
   apollo: {
     wantList: {
       query: WANT_QUERY,
+      update: (data) => data.getAllWantsByUserId,
+      variables: {
+        // hard coded test user
       update: (data) => data.wants,
+      },
     },
   },
   methods: {
