@@ -16,10 +16,14 @@ const routes: Array<RouteConfig> = [
     meta: { layout: LayoutDefault },
   },
   {
-    path: '/login',
-    name: 'login',
+    path: "/login",
+    name: "login",
     meta: { layout: LayoutMinimal },
-    component: () => import('@/views/Login.vue')
+    component: () => import("@/views/Login.vue"),
+  },
+  {
+    path: "*",
+    redirect: "login",
   },
 ];
 
