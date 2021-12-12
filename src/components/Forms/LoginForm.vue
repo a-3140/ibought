@@ -2,13 +2,13 @@
   <el-form ref="form" :model="form" @input.native="updateIsFormValidated">
     <el-form-item
       prop="email"
-      :rules="[{ required: true, message: 'pleast input your email' }]"
+      :rules="[{ required: true, message: 'please input your email' }]"
     >
       <el-input v-model="form.email" :maxlength="100" placeholder="email" />
     </el-form-item>
     <el-form-item
       prop="password"
-      :rules="[{ required: true, message: 'pleast input your password' }]"
+      :rules="[{ required: true, message: 'please input your password' }]"
     >
       <el-input
         type="password"

@@ -65,7 +65,7 @@ export default {
       update: (data) => data.getAllWantsByUserId,
       variables: {
         // hard coded test user
-      update: (data) => data.wants,
+        id: "39be5968-415c-45c3-827c-64e9499d41ec",
       },
     },
   },
