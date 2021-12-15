@@ -2,13 +2,26 @@
   <el-form ref="form" :model="form" @input.native="updateIsFormValidated">
     <el-form-item
       prop="email"
-      :rules="[{ required: true, message: 'please input your email' }]"
+      :rules="[
+        {
+          type: 'email',
+          required: true,
+          message: 'please input a valid email',
+          trigger: 'blur',
+        },
+      ]"
     >
       <el-input v-model="form.email" :maxlength="100" placeholder="email" />
     </el-form-item>
     <el-form-item
       prop="password"
-      :rules="[{ required: true, message: 'please input your password' }]"
+      :rules="[
+        {
+          required: true,
+          message: 'please input your password',
+          trigger: 'change',
+        },
+      ]"
     >
       <el-input
         type="password"
@@ -17,7 +30,14 @@
         placeholder="password"
       />
     </el-form-item>
-    <el-button :disabled="!isFormValid" type="info" round> submit </el-button>
+    <el-button
+      v-on:click="loginUser"
+      :disabled="!isFormValid"
+      type="info"
+      round
+    >
+      submit
+    </el-button>
   </el-form>
 </template>
 
@@ -38,7 +58,7 @@ export default {
   methods: {
     ...mapActions(["login"]),
     loginUser: function () {
-      this.login(this.authDetails).then(() => this.$router.push("/wants"));
+      this.login(this.form).then(() => this.$router.push("/wants"));
     },
     updateIsFormValidated() {
       this.$refs.form.validate((isValid) => {
