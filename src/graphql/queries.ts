@@ -14,12 +14,7 @@ export const WANT_QUERY = gql`
 `;
 
 export const CURRENT_USER = gql`
-  query CurrentUser($id: String!) {
-    CurrentUser(id: $id) {
-      id
-      firstName
-      lastName
-      email
-    }
+  query {
+    AuthenticatedUser
   }
 `;

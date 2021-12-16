@@ -50,7 +50,7 @@ export default {
       wantList: [
         {
           id: 1,
-          name: "Macbook sample",
+          name: "Sample Item",
           source: "Shopee",
           price: 20000,
           dateAdded: "2021-12-01",
