@@ -15,6 +15,11 @@ export const WANT_QUERY = gql`
 
 export const CURRENT_USER = gql`
   query {
-    AuthenticatedUser
+    AuthenticatedUser {
+      id
+      firstName
+      lastName
+      email
+    }
   }
 `;
