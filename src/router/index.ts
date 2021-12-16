@@ -4,6 +4,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import Wants from "@/views/Wants.vue";
 import LayoutDefault from "@/layouts/LayoutDefault.vue";
 import LayoutMinimal from "@/layouts/LayoutMinimal.vue";
+import store from "../store";
 
 Vue.use(VueRouter);
 
@@ -13,7 +14,17 @@ const routes: Array<RouteConfig> = [
     name: "wants",
     alias: "/",
     component: Wants,
-    meta: { layout: LayoutDefault },
+    meta: { layout: LayoutDefault, requiresAuth: true },
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    meta: { layout: LayoutMinimal, requiresAuth: true },
+    component: () => import("@/views/Logout.vue"),
+  },
+  {
+    path: "*",
+    redirect: "login",
   },
   {
     path: "/login",
@@ -21,22 +32,29 @@ const routes: Array<RouteConfig> = [
     meta: { layout: LayoutMinimal },
     component: () => import("@/views/Login.vue"),
   },
-  {
-    path: "/logout",
-    name: "logout",
-    meta: { layout: LayoutMinimal },
-    component: () => import("@/views/Logout.vue"),
-  },
-  {
-    path: "*",
-    redirect: "login",
-  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const isUserLoggedIn = store.getters.isAuthenticated;
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (!isUserLoggedIn) {
+      store.dispatch("logout");
+      next({
+        path: "/login",
+        query: { redirect: to.fullPath },
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;
