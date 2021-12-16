@@ -18,6 +18,8 @@ body {
   padding: 0;
   margin: 0;
 }
+// * TODO
+// Modularized overriding of design
 .el-button--info,
 .el-button--info:hover,
 .el-button--info:focus {
