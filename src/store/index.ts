@@ -83,22 +83,6 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    /*
-    async register({ commit, dispatch }, form) {
-      try {
-        const { data } = await apolloClient.mutate({
-          mutation: REGISTER_USER,
-          variables: { ...form },
-        });
-        const token = JSON.stringify(data.createUser.token);
-        commit("SET_TOKEN", token);
-        localStorage.setItem("access-token", token);
-        dispatch("setUser");
-      } catch (e) {
-        console.log(e);
-      }
-    },
-    */
     async login({ commit, dispatch }, form) {
       try {
         const { data } = await apolloClient.mutate({
