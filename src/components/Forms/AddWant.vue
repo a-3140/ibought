@@ -189,7 +189,7 @@ export default {
   margin-bottom: 1em;
 }
 .el-input {
-  width: 100%;
+  width: 100% !important;
 }
 .el-select {
   width: 100%;
