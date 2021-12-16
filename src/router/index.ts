@@ -22,6 +22,12 @@ const routes: Array<RouteConfig> = [
     component: () => import("@/views/Login.vue"),
   },
   {
+    path: "/logout",
+    name: "logout",
+    meta: { layout: LayoutMinimal },
+    component: () => import("@/views/Logout.vue"),
+  },
+  {
     path: "*",
     redirect: "login",
   },

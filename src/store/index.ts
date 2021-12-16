@@ -79,7 +79,7 @@ export default new Vuex.Store({
     },
     LOGOUT_USER(state) {
       state.authStatus = false;
-      state.token = null && localStorage.removeItem("access-token");
+      state.token = null;
     },
   },
   actions: {
@@ -101,7 +101,8 @@ export default new Vuex.Store({
       const { data } = await apolloClient.query({ query: CURRENT_USER });
       commit("LOGIN_USER", data);
     },
-    async logOut({ commit, dispatch }) {
+    async logout({ commit, dispatch }) {
+      localStorage.removeItem("access-token");
       commit("LOGOUT_USER");
     },
   },
