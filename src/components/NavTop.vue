@@ -30,12 +30,14 @@ export default {
         showDrawer: true,
         component: "AppSettings",
         direction: "ltr",
+        destroyOnClose: true,
       },
       profileSettings: {
         title: "profile",
         showDrawer: true,
         component: "ProfileSettings",
         direction: "rtl",
+        destroyOnClose: true,
       },
     };
   },
