@@ -8,9 +8,9 @@ import { mapActions } from "vuex";
 export default {
   name: "ProfileSettings",
   methods: {
-    ...mapActions(["logout"]),
+    ...mapActions(["logout", "closeDrawer"]),
     logoutUser: function () {
-      this.logout().then(() => this.$router.push("/login"));
+      this.logout().then(() => this.closeDrawer()).then(() => this.$router.push("/login"));
     },
   },
 };

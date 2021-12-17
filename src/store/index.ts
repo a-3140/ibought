@@ -27,6 +27,9 @@ export default new Vuex.Store({
     drawer: (state) => state.drawer,
   },
   mutations: {
+    CLOSE_DRAWER(state) {
+      state.drawer.showDrawer = false;
+    },
     TOGGLE_DRAWER(state, options) {
       const { destroyOnClose, title, showDrawer, component, direction } =
         options;
@@ -50,6 +53,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    async closeDrawer({ commit, dispatch }) {
+      commit("CLOSE_DRAWER");
+    },
     async toggleDrawer({ commit, dispatch }, state: DrawerState) {
       commit("TOGGLE_DRAWER", state);
     },

@@ -32,7 +32,7 @@ export default {
         direction: "ltr",
       },
       profileSettings: {
-        title: "srofile",
+        title: "profile",
         showDrawer: true,
         component: "ProfileSettings",
         direction: "rtl",
