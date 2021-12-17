@@ -3,12 +3,16 @@
     <component :is="this.$route.meta.layout || 'div'">
       <router-view />
     </component>
+    <drawer-container />
   </div>
 </template>
 
 <script>
+import Container from "@/components/Drawers/Container.vue";
+
 export default {
   name: "App",
+  components: { "drawer-container": Container },
 };
 </script>
 

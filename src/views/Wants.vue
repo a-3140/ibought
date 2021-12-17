@@ -27,7 +27,7 @@
 <script>
 import ECard from "../components/ECard.vue";
 import { WANT_QUERY } from "../graphql/queries";
-import AddWantForm from "../components/Forms/AddWant.vue";
+import AddWantForm from "../components/Drawers/AddWant.vue";
 import EBtn from "../components/Buttons/EBtn.vue";
 
 export default {
