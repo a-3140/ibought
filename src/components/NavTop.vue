@@ -1,16 +1,40 @@
 <template>
   <div class="mobile-top-nav-container">
     <div class="mobile-top-nav" :class="showSideIcons ? 'spaced' : 'center'">
-      <i v-if="showSideIcons" class="el-icon-setting" />
+      <i
+        v-if="showSideIcons"
+        class="el-icon-setting"
+        v-on:click="navToggleDrawer(appSettings)"
+      />
       <span>{{ currentTitle }}</span>
-      <i v-if="showSideIcons" class="el-icon-user" />
+      <i
+        v-if="showSideIcons"
+        class="el-icon-user"
+        v-on:click="navToggleDrawer(profileSettings)"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "NavTop",
+  data() {
+    return {
+      appSettings: {
+        showDrawer: true,
+        component: "AppSettings",
+        direction: "ltr",
+      },
+      profileSettings: {
+        showDrawer: true,
+        component: "ProfileSettings",
+        direction: "rtl",
+      },
+    };
+  },
   props: {
     title: {
       type: String,
@@ -26,6 +50,12 @@ export default {
   computed: {
     currentTitle() {
       return this.title ? this.title : this.$route.name;
+    },
+  },
+  methods: {
+    ...mapActions(["toggleDrawer"]),
+    navToggleDrawer: function (state) {
+      this.toggleDrawer(state);
     },
   },
 };

@@ -1,8 +1,9 @@
-import { apolloClient } from '@/main';
+import { apolloClient } from "@/main";
 import { LOGIN } from "@/graphql/mutations";
 import { CURRENT_USER } from "@/graphql/queries";
 import Vue from "vue";
 import Vuex from "vuex";
+import { DrawerState } from "@/constants";
 
 Vue.use(Vuex);
 
@@ -12,12 +13,24 @@ export default new Vuex.Store({
     user: {},
     authStatus: false,
     token: null,
+    drawer: {
+      showDrawer: false,
+      component: null,
+      direction: null,
+    },
   },
   getters: {
     authStatus: (state) => state.authStatus,
     user: (state) => state.user,
+    drawer: (state) => state.drawer,
   },
   mutations: {
+    TOGGLE_DRAWER(state, options) {
+      const { showDrawer, component, direction } = options;
+      state.drawer.component = component;
+      state.drawer.direction = direction;
+      state.drawer.showDrawer = showDrawer;
+    },
     SET_TOKEN(state, token) {
       state.token = token;
     },
@@ -32,6 +45,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    async toggleDrawer({ commit, dispatch }, state: DrawerState) {
+      commit("TOGGLE_DRAWER", state);
+    },
     async login({ commit, dispatch }, form) {
       try {
         const { data } = await apolloClient.mutate({
