@@ -5,43 +5,28 @@
         <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
       </div>
     </div>
-    <e-btn @btn-function="toggleDrawer" v-bind="button" />
-    <el-drawer
-      :visible.sync="drawer"
-      :direction="drawerOptions.direction"
-      :destroy-on-close="drawerOptions.destroyOnClose"
-      :size="drawerOptions.size"
-    >
-      <template slot="title">
-        <div class="form-title">
-          {{ $t("wantForm.title") }}
-        </div>
-      </template>
-      <slot>
-        <add-want-form />
-      </slot>
-    </el-drawer>
+    <e-btn @btn-function="addWant(addWantDrawerState)" v-bind="button" />
   </div>
 </template>
 
 <script>
 import ECard from "../components/ECard.vue";
 import { WANT_QUERY } from "../graphql/queries";
-import AddWantForm from "../components/Drawers/AddWant.vue";
 import EBtn from "../components/Buttons/EBtn.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "Wants",
-  components: { ECard, AddWantForm, EBtn },
+  components: { ECard, EBtn },
   data() {
     return {
-      drawer: false,
-      drawerOptions: {
-        destroyOnClose: true,
+      addWantDrawerState: {
+        title: "add want",
+        showDrawer: true,
+        component: "AddWant",
         direction: "rtl",
-        size: "100%",
+        destroyOnClose: true,
       },
-
       button: {
         type: "info",
         icon: "el-icon-circle-plus",
@@ -70,20 +55,15 @@ export default {
     },
   },
   methods: {
-    toggleDrawer() {
-      this.drawer = !this.drawer;
+    ...mapActions(["toggleDrawer"]),
+    addWant(state) {
+      this.toggleDrawer(state);
     },
   },
 };
 </script>
 
 <style scoped>
-.form-title {
-  text-align: left;
-  font-weight: bold;
-  font-size: 1.25em;
-  color: #000000;
-}
 .content {
   text-align: left;
   background: #e4e4e6;
@@ -93,12 +73,7 @@ export default {
   padding-bottom: 5em;
   margin-top: 60px;
 }
-.title {
-  font-size: 1.5em;
-  font-weight: normal;
-  padding-left: 1em;
-  margin-bottom: 0;
-}
+
 .all-cards-container {
   margin: 1.5em;
   margin-top: 1em;

@@ -1,6 +1,5 @@
 <template>
   <div class="content">
-    <h1>app settings</h1>
   </div>
 </template>
 

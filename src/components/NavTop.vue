@@ -22,13 +22,17 @@ import { mapActions } from "vuex";
 export default {
   name: "NavTop",
   data() {
+    // * TODO
+    // Use some kind of a constant file for the strings
     return {
       appSettings: {
+        title: "settings",
         showDrawer: true,
         component: "AppSettings",
         direction: "ltr",
       },
       profileSettings: {
+        title: "srofile",
         showDrawer: true,
         component: "ProfileSettings",
         direction: "rtl",

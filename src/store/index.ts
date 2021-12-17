@@ -14,9 +14,11 @@ export default new Vuex.Store({
     authStatus: false,
     token: null,
     drawer: {
+      title: "",
       showDrawer: false,
       component: null,
       direction: null,
+      destroyOnClose: false,
     },
   },
   getters: {
@@ -26,10 +28,13 @@ export default new Vuex.Store({
   },
   mutations: {
     TOGGLE_DRAWER(state, options) {
-      const { showDrawer, component, direction } = options;
+      const { destroyOnClose, title, showDrawer, component, direction } =
+        options;
+      state.drawer.title = title;
       state.drawer.component = component;
       state.drawer.direction = direction;
       state.drawer.showDrawer = showDrawer;
+      state.drawer.destroyOnClose = destroyOnClose || false;
     },
     SET_TOKEN(state, token) {
       state.token = token;
