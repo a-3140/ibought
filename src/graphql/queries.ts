@@ -12,10 +12,15 @@ export const WANT_QUERY = gql`
     }
   }
 `;
+export const ME = gql`
+  query {
+    ME
+  }
+`;
 
 export const CURRENT_USER = gql`
   query {
-    AuthenticatedUser {
+    User {
       id
       firstName
       lastName
