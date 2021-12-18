@@ -50,9 +50,8 @@ export default {
       skip: true,
       query: WANT_QUERY,
       update: (data) => data.getAllWantsByUserId,
-      fetchPolicy: "network-only",
       variables: {
-        id: null,
+        id: '',
       },
     },
     currentUserId: {
