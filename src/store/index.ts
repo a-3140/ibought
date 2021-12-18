@@ -1,4 +1,4 @@
-import { apolloClient } from "@/main";
+import { apolloClient } from "@/vue-apollo";
 import { LOGIN } from "@/graphql/mutations";
 import { CURRENT_USER } from "@/graphql/queries";
 import Vue from "vue";

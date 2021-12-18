@@ -4,7 +4,6 @@
       <div class="all-cards-container">
         <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
       </div>
-      <h1>{{ user }}</h1>
     </div>
     <e-btn @btn-function="addWant(addWantDrawerState)" v-bind="button" />
   </div>
@@ -12,7 +11,7 @@
 
 <script>
 import ECard from "../components/ECard.vue";
-import { ME } from "../graphql/queries";
+import { ME, WANT_QUERY } from "../graphql/queries";
 import EBtn from "../components/Buttons/EBtn.vue";
 import { mapActions } from "vuex";
 
@@ -47,18 +46,27 @@ export default {
     };
   },
   apollo: {
-    user: {
-      query: ME,
-      update: (data) => data.ME,
+    wantList: {
+      skip: true,
+      query: WANT_QUERY,
+      update: (data) => data.getAllWantsByUserId,
+      fetchPolicy: "network-only",
+      variables: {
+        id: null,
+      },
     },
-    // wantList: {
-    //   query: WANT_QUERY,
-    //   update: (data) => data.getAllWantsByUserId,
-    //   variables: {
-    //     // hard coded test user
-    //     id: "39be5968-415c-45c3-827c-64e9499d41ec",
-    //   },
-    // },
+    currentUserId: {
+      query: ME,
+      update: (data) => {
+        data.ME;
+      },
+      result(result) {
+        this.$apollo.queries.wantList.setVariables({
+          id: result.data.ME,
+        });
+        this.$apollo.queries.wantList.skip = false;
+      },
+    },
   },
   methods: {
     ...mapActions(["toggleDrawer"]),

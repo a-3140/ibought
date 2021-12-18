@@ -12,6 +12,7 @@ export const WANT_QUERY = gql`
     }
   }
 `;
+
 export const ME = gql`
   query {
     ME
