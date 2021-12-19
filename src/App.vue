@@ -1,8 +1,13 @@
 <template>
   <div id="app">
-    <component :is="this.$route.meta.layout || 'div'">
+    <component v-if="isMobile" :is="this.$route.meta.layout || 'div'">
       <router-view />
     </component>
+    <div v-else>
+      <h1>currently only available at mobile views</h1>
+      <h2>please view this website through your phone</h2>
+      <!-- TODO: Improve UI and add a patreon link -->
+    </div>
     <drawer-container />
   </div>
 </template>
@@ -13,6 +18,20 @@ import Container from "@/components/Drawers/Container.vue";
 export default {
   name: "App",
   components: { "drawer-container": Container },
+  data() {
+    return {
+      isMobile: false,
+    };
+  },
+  mounted() {
+    this.onResize();
+    window.addEventListener("resize", this.onResize, { passive: true });
+  },
+  methods: {
+    onResize() {
+      this.isMobile = window.innerWidth < 600;
+    },
+  },
 };
 </script>
 
