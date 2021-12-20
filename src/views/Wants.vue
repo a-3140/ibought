@@ -33,16 +33,7 @@ export default {
         text: "I want",
       },
       user: {},
-      wantList: [
-        {
-          id: 1,
-          name: "Sample Item",
-          source: "Shopee",
-          price: 20000,
-          dateAdded: "2021-12-01",
-          daysToDelay: 8,
-        },
-      ],
+      wantList: [{}],
     };
   },
   apollo: {
@@ -51,7 +42,7 @@ export default {
       query: WANT_QUERY,
       update: (data) => data.getAllWantsByUserId,
       variables: {
-        id: '',
+        id: "",
       },
     },
     currentUserId: {
