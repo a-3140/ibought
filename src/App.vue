@@ -56,5 +56,10 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+.fixed-btn {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+}
 </style>
 

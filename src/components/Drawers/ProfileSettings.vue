@@ -1,5 +1,7 @@
 <template>
-  <el-button v-on:click="logoutUser" type="info" round> logout </el-button>
+    <div class="fixed-btn">
+  <el-button class="logout-btn" v-on:click="logoutUser" type="info" round> logout </el-button>
+  </div>
 </template>
 
 <script>
@@ -18,5 +20,10 @@ export default {
 <style scoped>
 .el-button {
   width: 100%;
+}
+.logout-btn {
+  width: calc(100% - 40px);
+  height: 50px;
+  margin-bottom: 20px;
 }
 </style>

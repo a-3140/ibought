@@ -95,7 +95,7 @@
         </el-form>
       </el-col>
     </el-row>
-    <div class="fixed-button">
+    <div class="fixed-btn">
       <el-button
         class="save-btn"
         round
@@ -142,8 +142,6 @@ export default {
           label: "furniture",
         },
       ],
-      // hardcoded
-      currency: "php",
     };
   },
   computed: {
@@ -199,9 +197,5 @@ export default {
   height: 50px;
   margin-bottom: 20px;
 }
-.fixed-button {
-  position: fixed;
-  bottom: 10px;
-  width: 100%;
-}
+
 </style>
