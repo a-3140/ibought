@@ -25,17 +25,23 @@
 </template>
 
 <script lang="ts">
+import { CURRENT_USER } from "@/graphql/queries";
 import Vue from "vue";
 
 export default Vue.extend({
   name: "ECard",
   data() {
     return {
-      currency: "php",
       dateStart: this.dateAdded,
       color: "#f56c6c",
       status: "warning",
     };
+  },
+  apollo: {
+    currency: {
+      query: CURRENT_USER,
+      update: (data) => data.User?.currency?.name,
+    },
   },
   computed: {
     // refactor and handle edge cases

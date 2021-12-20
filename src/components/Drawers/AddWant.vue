@@ -110,6 +110,7 @@
 </template>
 
 <script>
+import { CURRENT_USER } from "@/graphql/queries";
 export default {
   name: "AddWantForm",
   // enable button when name, price, and day is filled up
@@ -143,6 +144,12 @@ export default {
         },
       ],
     };
+  },
+  apollo: {
+    currency: {
+      query: CURRENT_USER,
+      update: (data) => data.User?.currency?.name,
+    },
   },
   computed: {
     dayOptions() {
