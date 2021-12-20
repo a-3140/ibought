@@ -14,6 +14,7 @@ import ECard from "../components/ECard.vue";
 import { ME, WANT_QUERY } from "../graphql/queries";
 import EBtn from "../components/Buttons/EBtn.vue";
 import { mapActions } from "vuex";
+import { addWantDrawerInitialState } from "@/constants";
 
 export default {
   name: "Wants",
@@ -21,11 +22,7 @@ export default {
   data() {
     return {
       addWantDrawerState: {
-        title: "add want",
-        showDrawer: true,
-        component: "AddWant",
-        direction: "rtl",
-        destroyOnClose: true,
+        ...addWantDrawerInitialState,
       },
       button: {
         type: "info",
