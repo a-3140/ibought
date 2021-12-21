@@ -2,7 +2,14 @@
   <div>
     <div class="content">
       <div class="all-cards-container">
-        <e-card v-for="item in wantList" :key="item.id" v-bind="item" />
+        <!-- TODO loading card -->
+        <el-skeleton
+          v-if="$apollo.loading"
+          class="skeleton"
+          :rows="3"
+          animated
+        />
+        <e-card v-else v-for="item in wantList" :key="item.id" v-bind="item" />
       </div>
     </div>
     <e-btn @btn-function="addWant(addWantDrawerState)" v-bind="button" />
@@ -30,7 +37,6 @@ export default {
         text: "I want",
       },
       user: {},
-      wantList: [{}],
     };
   },
   apollo: {
@@ -90,5 +96,8 @@ export default {
 }
 .box {
   border-bottom: 1px solid #c0c4cc;
+}
+.skeleton {
+  padding-top: 1em;
 }
 </style>
