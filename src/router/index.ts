@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 
-import Wants from "@/views/Wants.vue";
+import Wants from "@/views/Authorized/Wants.vue";
 import LayoutDefault from "@/layouts/LayoutDefault.vue";
 import LayoutMinimal from "@/layouts/LayoutMinimal.vue";
 import store from "../store";
@@ -20,7 +20,7 @@ const routes: Array<RouteConfig> = [
     path: "/logout",
     name: "logout",
     meta: { layout: LayoutMinimal, requiresAuth: true },
-    component: () => import("@/views/Logout.vue"),
+    component: () => import("@/views/Authorized/Logout.vue"),
   },
   {
     path: "*",
@@ -30,7 +30,7 @@ const routes: Array<RouteConfig> = [
     path: "/login",
     name: "login",
     meta: { layout: LayoutMinimal },
-    component: () => import("@/views/Login.vue"),
+    component: () => import("@/views/Unauthorized/Login.vue"),
   },
 ];
 

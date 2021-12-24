@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import ECard from "../components/ECard.vue";
-import { ME, WANT_QUERY } from "../graphql/queries";
-import EBtn from "../components/Buttons/EBtn.vue";
+import ECard from "@/components/ECard.vue";
+import { ME, WANT_QUERY } from "@/graphql/queries";
+import EBtn from "@/components/Buttons/EBtn.vue";
 import { mapActions } from "vuex";
 import { addWantDrawerInitialState } from "@/constants";
 
