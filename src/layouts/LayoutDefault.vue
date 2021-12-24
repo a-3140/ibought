@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import NavBottom from "../components/NavBottom.vue";
-import NavTop from "../components/NavTop.vue";
+import NavBottom from "../components/Navigation/NavBottom.vue";
+import NavTop from "../components/Navigation/NavTop.vue";
 
 export default {
   name: "LayoutDefault",

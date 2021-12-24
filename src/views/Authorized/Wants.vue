@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import ECard from "@/components/ECard.vue";
+import ECard from "@/components/Cards/ECard.vue";
 import { ME, WANT_QUERY } from "@/graphql/queries";
 import EBtn from "@/components/Buttons/EBtn.vue";
 import { mapActions } from "vuex";

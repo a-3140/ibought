@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import NavTop from "../components/NavTop.vue";
+import NavTop from "../components/Navigation/NavTop.vue";
 
 export default {
   name: "LayoutMinimal",

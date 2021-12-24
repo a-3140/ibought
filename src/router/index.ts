@@ -42,6 +42,9 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const isUserLoggedIn = localStorage.getItem("access-token");
+
+  // TODO: send a request to check if the access token is valid.
+
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!isUserLoggedIn) {
       store.dispatch("logout");
